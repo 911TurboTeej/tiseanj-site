@@ -1,0 +1,17 @@
+---
+layout: default
+title: Blog
+permalink: /blog/
+---
+<section class="wrap narrow">
+  <h1>Blog</h1>
+  <ul class="post-list">
+    {% for post in site.posts %}
+    <li>
+      <p class="meta">{{ post.date | date: "%B %-d, %Y" }}{% if post.categories.size > 0 %} &middot; {{ post.categories | join: ", " }}{% endif %}</p>
+      <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+      <p>{{ post.excerpt | strip_html | truncatewords: 30 }}</p>
+    </li>
+    {% endfor %}
+  </ul>
+</section>

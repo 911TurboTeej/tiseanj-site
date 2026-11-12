@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% if page.title and page.url != '/' %}{{ page.title }} | {% endif %}{{ site.title }}</title>
+  <meta name="description" content="{{ site.description }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,600;1,400&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+</head>
+<body>
+  <header class="site-header">
+    <a class="logo" href="{{ '/' | relative_url }}">
+      {% if site.logo != "" %}<img src="{{ site.logo | relative_url }}" alt="{{ site.title }}">{% else %}<span>TISEAN J.</span>{% endif %}
+    </a>
+    <nav aria-label="Main">
+      <a href="{{ '/blog/' | relative_url }}">Blog</a>
+      <a href="{{ site.etsy_url }}" target="_blank" rel="noopener">Shop</a>
+      <a href="{{ '/about/' | relative_url }}">About</a>
+      <a href="{{ site.youtube_url }}" target="_blank" rel="noopener">Video</a>
+      <a href="{{ '/contact/' | relative_url }}">Contact</a>
+    </nav>
+  </header>
+  <main>{{ content }}</main>
+  <footer class="site-footer">
+    <p><a href="{{ site.youtube_url }}" target="_blank" rel="noopener">YouTube</a> &middot; <a href="{{ site.etsy_url }}" target="_blank" rel="noopener">Brainchild Supply Co.</a></p>
+    <p>&copy; {{ 'now' | date: '%Y' }} {{ site.title }}</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,14 @@
+# ---- EDIT THESE (the only file you need for links) ----
+title: Tisean Simmons
+description: Design, stories, ideas, and whatever else I'm making.
+url: https://tiseanj.com
+
+logo: ""            # after you upload your logo, put its path here, e.g. /assets/images/logo.png
+hero_image: ""      # e.g. /assets/images/hero.jpg
+etsy_url: "https://www.etsy.com/shop/YOUR-SHOP-NAME"
+youtube_url: "https://www.youtube.com/@YOUR-CHANNEL"
+formspree_id: "YOUR-FORM-ID"
+# --------------------------------------------------------
+
+permalink: /blog/:title/
+exclude: [README.md]
