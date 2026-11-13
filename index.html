@@ -2,25 +2,31 @@
 layout: default
 title: Home
 ---
-<section class="hero">
-  {% if site.hero_image != "" %}<img src="{{ site.hero_image | relative_url }}" alt="">{% else %}<div class="hero-ph">Hero image goes here</div>{% endif %}
+<section class="hero-band">
+  <div class="wrap">
+    <h1>{{ site.hero_title }}</h1>
+    <p class="tagline">{{ site.hero_tagline }}</p>
+    {% if site.hero_image != "" %}<img class="hero-img" src="{{ site.hero_image | relative_url }}" alt="">{% else %}<div class="hero-ph">Your illustration goes here</div>{% endif %}
+  </div>
 </section>
 
-<section class="wrap narrow intro">
-  <!-- EDIT: your headline and intro -->
-  <h1>Welcome to my corner of the internet.</h1>
-  <p>This is where I write, make, and share whatever I'm into: stories from the road, things I'm learning to sew, ideas that turn into products, and everything in between.</p>
+<section class="wrap">
+  <h2 class="section-title">Latest from the blog</h2>
+  <div class="grid">
+    {% for post in site.posts limit: 3 %}{% include post-card.html post=post %}{% endfor %}
+  </div>
+  <p class="more"><a href="{{ '/blog/' | relative_url }}">See all posts &rarr;</a></p>
 </section>
 
-<section class="wrap latest">
-  <h2>Latest from the blog</h2>
-  <ul class="post-list">
-    {% for post in site.posts limit: 3 %}
-    <li>
-      <p class="meta">{{ post.date | date: "%B %-d, %Y" }}</p>
-      <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
-    </li>
-    {% endfor %}
-  </ul>
-  <p><a href="{{ '/blog/' | relative_url }}">See all posts &rarr;</a></p>
+<section class="wrap features">
+  <div class="feature">
+    <h2>Brainchild Supply Co.</h2>
+    <p>Ideas that made it off the page and into the world.</p>
+    <a class="btn" href="{{ site.etsy_url }}" target="_blank" rel="noopener">Shop on Etsy</a>
+  </div>
+  <div class="feature">
+    <h2>Watch</h2>
+    <p>Quiet the Noise, Rideshare Chronicles, potluck stories, and whatever else I'm up to.</p>
+    <a class="btn" href="{{ site.youtube_url }}" target="_blank" rel="noopener">Watch on YouTube</a>
+  </div>
 </section>

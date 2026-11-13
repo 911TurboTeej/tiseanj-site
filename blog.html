@@ -3,15 +3,22 @@ layout: default
 title: Blog
 permalink: /blog/
 ---
-<section class="wrap narrow">
+<section class="wrap">
   <h1>Blog</h1>
-  <ul class="post-list">
-    {% for post in site.posts %}
-    <li>
-      <p class="meta">{{ post.date | date: "%B %-d, %Y" }}{% if post.categories.size > 0 %} &middot; {{ post.categories | join: ", " }}{% endif %}</p>
-      <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
-      <p>{{ post.excerpt | strip_html | truncatewords: 30 }}</p>
-    </li>
-    {% endfor %}
-  </ul>
+  <div class="filters" role="group" aria-label="Filter posts by topic">
+    <button type="button" data-cat="all" aria-pressed="true">All</button>
+    {% for category in site.categories %}<button type="button" data-cat="{{ category[0] | slugify }}" aria-pressed="false">{{ category[0] }}</button>{% endfor %}
+  </div>
+  <div class="grid">
+    {% for post in site.posts %}{% include post-card.html post=post %}{% endfor %}
+  </div>
 </section>
+<script>
+document.querySelectorAll('.filters button').forEach(function(b){
+  b.addEventListener('click',function(){
+    var c=b.dataset.cat;
+    document.querySelectorAll('.filters button').forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false');});
+    document.querySelectorAll('.card').forEach(function(card){card.hidden=(c!=='all'&&card.dataset.cat!==c);});
+  });
+});
+</script>

@@ -1,14 +1,16 @@
-# ---- EDIT THESE (the only file you need for links) ----
+# ---- EDIT THESE (the only file you need for links and hero text) ----
 title: Tisean Simmons
-description: Design, stories, ideas, and whatever else I'm making.
+description: Stories, ideas, and things I'm making.
 url: https://tiseanj.com
 
-logo: ""            # after you upload your logo, put its path here, e.g. /assets/images/logo.png
-hero_image: ""      # e.g. /assets/images/hero.jpg
+logo: ""            # e.g. /assets/images/logo.png
+hero_image: ""      # your illustration, e.g. /assets/images/hero.png
+hero_title: "Hi! I'm Tisean."
+hero_tagline: "Designer, storyteller, and rideshare driver making things from everyday life."
 etsy_url: "https://www.etsy.com/shop/YOUR-SHOP-NAME"
 youtube_url: "https://www.youtube.com/@YOUR-CHANNEL"
 formspree_id: "YOUR-FORM-ID"
-# --------------------------------------------------------
+# ---------------------------------------------------------------------
 
 permalink: /blog/:title/
 exclude: [README.md]
